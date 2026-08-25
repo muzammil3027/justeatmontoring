@@ -10,6 +10,10 @@ on:
         description: 'Save screenshots as artifacts'
         type: boolean
         default: false
+      cities:
+        description: 'Cities to check (comma-separated). Leave empty for the default (Pisa,Livorno) — use this to test a city on demand.'
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -40,7 +44,7 @@ jobs:
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          CITIES: Pisa,Livorno
+          CITIES: ${{ inputs.cities || 'Pisa,Livorno' }}
         run: node check.mjs ${{ inputs.debug && '--debug' || '' }}
 
       - name: Upload debug screenshots
