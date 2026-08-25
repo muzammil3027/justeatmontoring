@@ -1,0 +1,62 @@
+name: Just Eat rider monitor
+
+on:
+  schedule:
+    # every 15 minutes (GitHub may delay free-tier crons by a few minutes)
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      debug:
+        description: 'Save screenshots as artifacts'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: justeat-monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run check
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          CITIES: Pisa,Livorno
+        run: node check.mjs ${{ inputs.debug && '--debug' || '' }}
+
+      - name: Upload debug screenshots
+        if: always() && inputs.debug
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-screenshots
+          path: debug/
+          if-no-files-found: ignore
+          retention-days: 3
+
+      - name: Persist state
+        if: always()
+        run: |
+          git config user.name  "justeat-monitor"
+          git config user.email "actions@github.com"
+          git add state.json || true
+          git diff --staged --quiet || git commit -m "state: $(date -u +%FT%TZ)"
+          git push || true

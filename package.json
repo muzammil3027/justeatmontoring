@@ -1,0 +1,14 @@
+{
+  "name": "justeat-rider-monitor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node check.mjs",
+    "debug": "node check.mjs --debug --headed",
+    "codegen": "playwright codegen \"https://justeat.it/en/courier/form?city=Pisa\""
+  },
+  "dependencies": {
+    "playwright": "^1.47.0"
+  }
+}
