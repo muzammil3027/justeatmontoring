@@ -2,8 +2,8 @@ name: Just Eat rider monitor
 
 on:
   schedule:
-    # every 15 minutes (GitHub may delay free-tier crons by a few minutes)
-    - cron: '*/15 * * * *'
+    # every 5 minutes (GitHub best-effort scheduling means actual runs land less often, ~15-20 min apart)
+    - cron: '*/5 * * * *'
   workflow_dispatch:
     inputs:
       debug:
