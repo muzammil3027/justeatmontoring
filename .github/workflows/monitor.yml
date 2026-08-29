@@ -2,8 +2,12 @@ name: Just Eat rider monitor
 
 on:
   schedule:
-    # every 5 minutes (GitHub best-effort scheduling means actual runs land less often, ~15-20 min apart)
-    - cron: '*/5 * * * *'
+    # backup only — GitHub's native cron is best-effort and can lag hours on
+    # low-traffic public repos. The real cadence comes from an external pinger
+    # (cron-job.org) hitting the repository_dispatch endpoint below.
+    - cron: '*/15 * * * *'
+  repository_dispatch:
+    types: [ping]
   workflow_dispatch:
     inputs:
       debug:
