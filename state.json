@@ -1,10 +1,13 @@
 {
   "Pisa": {
     "all": [
+      "Own E-Bike",
       "Own Scooter"
     ],
-    "interesting": [],
-    "lastRun": "2026-09-07T07:32:10.545Z",
+    "interesting": [
+      "Own E-Bike"
+    ],
+    "lastRun": "2026-09-07T07:36:08.315Z",
     "lastError": null
   },
   "Viareggio": {
@@ -16,7 +19,7 @@
       "Own Scooter"
     ],
     "interesting": [],
-    "lastRun": "2026-09-07T07:32:34.607Z",
+    "lastRun": "2026-09-07T07:36:31.694Z",
     "lastError": null
   },
   "Trieste": {
