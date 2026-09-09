@@ -49,7 +49,12 @@ jobs:
         # file at the CDN edge ("Hash Sum mismatch"), failing the whole step.
         # Dropping the source removes the failure mode entirely rather than
         # hoping a retry lands on a different, non-stale edge node.
-        run: sudo rm -f /etc/apt/sources.list.d/*google*.list
+        #
+        # Ubuntu 24.04 (noble) runners use the newer deb822 .sources format,
+        # not the legacy .list — matching on filename guessed wrong. Match on
+        # content instead so this works regardless of filename or extension.
+        run: |
+          sudo grep -rl 'dl\.google\.com' /etc/apt/sources.list.d/ 2>/dev/null | xargs -r sudo rm -fv
 
       - name: Install Chromium
         run: |
