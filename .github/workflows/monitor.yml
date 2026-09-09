@@ -42,7 +42,18 @@ jobs:
         run: npm install
 
       - name: Install Chromium
-        run: npx playwright install --with-deps chromium
+        # The runner image ships with Google Chrome's apt source pre-configured.
+        # Its Packages.gz occasionally lags its own Release file at the CDN edge
+        # ("Hash Sum mismatch"), which fails `apt-get update` even though we
+        # never touch that repo. Retry — it's a transient upstream cache lag,
+        # not anything under our control.
+        run: |
+          for attempt in 1 2 3 4 5; do
+            npx playwright install --with-deps chromium && exit 0
+            echo "Install attempt $attempt failed, retrying in 30s..."
+            sleep 30
+          done
+          exit 1
 
       - name: Run check
         env:
