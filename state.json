@@ -4,8 +4,8 @@
       "Own Scooter"
     ],
     "interesting": [],
-    "lastRun": "2026-09-11T17:41:25.303Z",
-    "lastError": null
+    "lastRun": "2026-09-11T17:46:10.047Z",
+    "lastError": "TimeoutError: page.goto: Timeout 15000ms exceeded.\nCall log:\n  - navigating to \"https://justeat.it/en/courier/form?city=Pisa\", waiting until \"domcontentloaded\"\n"
   },
   "Viareggio": {
     "lastError": "\"Viareggio\" is not one of the 54 cities Just Eat operates in",
@@ -16,7 +16,7 @@
       "Own Scooter"
     ],
     "interesting": [],
-    "lastRun": "2026-09-11T17:41:48.832Z",
+    "lastRun": "2026-09-11T17:46:33.588Z",
     "lastError": null
   },
   "Trieste": {
