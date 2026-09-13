@@ -412,8 +412,17 @@ async function checkCity(browser, city) {
 // MAIN
 // ---------------------------------------------------------------------------
 
+// Normal cadence is a check every ~5 min (cron-job.org) with a 15-min native
+// GitHub backup. A gap much longer than that means something upstream (an
+// Actions outage, a broken pinger, ...) stopped runs for a while — worth a
+// one-off heads-up once things resume, rather than staying silent about it.
+const HEARTBEAT_GAP_MS = 20 * 60 * 1000;
+
 async function main() {
   const state = loadState();
+  const previousHeartbeat = state._heartbeat;
+  const now = new Date();
+
   const browser = await chromium.launch({ headless: !HEADED });
   const alerts = [];
 
@@ -457,6 +466,13 @@ async function main() {
   } else {
     log('>> nothing new');
   }
+
+  if (previousHeartbeat && now - new Date(previousHeartbeat) > HEARTBEAT_GAP_MS) {
+    const gapMin = Math.round((now - new Date(previousHeartbeat)) / 60000);
+    await telegram(`✅ Monitor is back to normal — no checks ran for ~${gapMin} min, resumed now.`);
+    log(`>> recovered after a ${gapMin} min gap`);
+  }
+  state._heartbeat = now.toISOString();
 
   saveState(state);
 }
