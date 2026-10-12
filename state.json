@@ -1,11 +1,11 @@
 {
-  "_heartbeat": "2026-10-12T12:51:09.068Z",
+  "_heartbeat": "2026-10-12T12:59:29.352Z",
   "Pisa": {
     "all": [
       "Own Scooter"
     ],
     "interesting": [],
-    "lastRun": "2026-10-12T12:51:35.131Z",
+    "lastRun": "2026-10-12T12:59:53.634Z",
     "lastError": null
   },
   "Viareggio": {
@@ -17,8 +17,8 @@
       "Own Scooter"
     ],
     "interesting": [],
-    "lastRun": "2026-10-12T12:51:58.777Z",
-    "lastError": null
+    "lastRun": "2026-10-12T12:59:54.804Z",
+    "lastError": "Error: page.goto: net::ERR_CONNECTION_CLOSED at https://justeat.it/en/courier/form?city=Livorno\nCall log:\n  - navigating to \"https://justeat.it/en/courier/form?city=Livorno\", waiting until \"domcontent"
   },
   "Trieste": {
     "all": [
