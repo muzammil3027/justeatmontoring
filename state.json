@@ -1,11 +1,11 @@
 {
-  "_heartbeat": "2026-10-15T19:25:40.625Z",
+  "_heartbeat": "2026-10-15T19:30:03.270Z",
   "Pisa": {
     "all": [
       "Own Scooter"
     ],
     "interesting": [],
-    "lastRun": "2026-10-15T19:26:04.447Z",
+    "lastRun": "2026-10-15T19:30:28.773Z",
     "lastError": null
   },
   "Viareggio": {
@@ -17,8 +17,8 @@
       "Own Scooter"
     ],
     "interesting": [],
-    "lastRun": "2026-10-15T19:26:27.658Z",
-    "lastError": null
+    "lastRun": "2026-10-15T19:30:34.050Z",
+    "lastError": "could not reach vehicle step (form says: www.justeat.it Host Error / Error)"
   },
   "Trieste": {
     "all": [
