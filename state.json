@@ -1,11 +1,11 @@
 {
-  "_heartbeat": "2026-11-15T05:45:52.899Z",
+  "_heartbeat": "2026-11-15T05:51:00.517Z",
   "Pisa": {
     "all": [
       "Own Scooter"
     ],
     "interesting": [],
-    "lastRun": "2026-11-15T05:46:17.724Z",
+    "lastRun": "2026-11-15T05:51:26.641Z",
     "lastError": null
   },
   "Viareggio": {
@@ -17,7 +17,7 @@
       "Own Scooter"
     ],
     "interesting": [],
-    "lastRun": "2026-11-15T05:46:39.267Z",
+    "lastRun": "2026-11-15T05:51:48.200Z",
     "lastError": null
   },
   "Trieste": {
