@@ -1,12 +1,12 @@
 {
-  "_heartbeat": "2026-11-19T19:16:00.299Z",
+  "_heartbeat": "2026-11-19T19:21:02.708Z",
   "Pisa": {
     "all": [
       "Own Scooter"
     ],
     "interesting": [],
-    "lastRun": "2026-11-19T19:16:06.112Z",
-    "lastError": "could not reach vehicle step"
+    "lastRun": "2026-11-19T19:21:27.611Z",
+    "lastError": null
   },
   "Viareggio": {
     "lastError": "\"Viareggio\" is not one of the 54 cities Just Eat operates in",
@@ -17,7 +17,7 @@
       "Own Scooter"
     ],
     "interesting": [],
-    "lastRun": "2026-11-19T19:16:26.835Z",
+    "lastRun": "2026-11-19T19:21:49.160Z",
     "lastError": null
   },
   "Trieste": {
